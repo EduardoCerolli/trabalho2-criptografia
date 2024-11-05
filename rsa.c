@@ -12,13 +12,14 @@ int primo (int n) {
 
 int proximoPrimo (int n) {
     while (1) {
-        if (primo(++n))
+        n++;
+        if (primo(n))
             return n;
     }
 }
 
 void fatoraN (int n, int *p, int *q) {
-    int a = 1, b = 1;
+    int a = 1, b;
 
     while (a < 1024) {
         a = proximoPrimo(a);
@@ -52,7 +53,7 @@ int inversoMod (int e, int totiente) {
 }
 
 int main () {
-    int e = 7, n = 1219;
+    int e = 13, n = 473;
     int p, q, totiente, d;
 
     fatoraN(n, &p, &q);
