@@ -52,9 +52,26 @@ int inversoMod (int e, int totiente) {
     return d;
 }
 
+int potencia (int base, int expoente, int mod) {
+    int res = base;
+    
+    for (int i = 0; i < expoente - 1; i++) {
+        res = (res * base) % mod;
+    }
+
+    return res;
+}
+
 int main () {
-    int e = 13, n = 473;
+    int e, n;
     int p, q, totiente, d;
+    int dado, decifra;
+
+    printf("Informe o valor de e: ");
+    scanf("%d", &e);
+
+    printf("Informe o valor de n: ");
+    scanf("%d", &n);
 
     fatoraN(n, &p, &q);
 
@@ -62,8 +79,14 @@ int main () {
 
     d = inversoMod(e, totiente);
 
-    printf("%d %d\n", p, q);
-    printf("%d\n", d);
+    printf("Informe o valor a ser decifrado: ");
+    scanf("%d", &dado);
+
+    decifra = potencia(dado, d, n);
+
+    printf("P e Q: %d %d\n", p, q);
+    printf("D: %d\n", d);
+    printf("Dado decifrado: %d\n", decifra);
 
     return 0;
 }
